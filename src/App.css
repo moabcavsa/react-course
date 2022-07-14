@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+
+.Post {
+
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
+}
+
+
+.Counter {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
