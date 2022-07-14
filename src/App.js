@@ -18,7 +18,7 @@ function App() {
         post.map((post, index) => (
           <Post key={index} name={post.name} surname={post.surname} post={post.post}/>
         ))}
-      <hr/>
+      <hr/> 
     </div>
   )
 }
