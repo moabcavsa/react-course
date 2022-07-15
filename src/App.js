@@ -5,12 +5,17 @@ import Counter from './Components/Counter'
 import {useState} from 'react'
 import FunctionEvent from './Components/FunctionEvent';
 import axios from 'axios';
+import {getCompanies} from './Services/apiAxios'
+import Company from './Components/Company';
+import FrontPage from './Components/FrontPage';
 
 
 
 
 function App() {
 
+
+  const [companies, setCompany] = useState([{id: null, Logo: '', CompanyName: '', PaymentType: '', RatingCompany: ''}])
 
   const [post, setPost] = useState([
   {name: "Giacomino", surname: "La Mazza", post: "Ciao Mondo belllo"},
@@ -28,14 +33,29 @@ function App() {
   }
 
 
-  const fetchRandData = async () =>
+  const fetchRandData =  () =>
   {
-    await axios.get('https://retoolapi.dev/gxljse/locations')
+    const res = axiosGet().then(data => {
+      setLocations(data.data)
+      console.log(loc)
+    }
+    )
+  }
+
+
+  const getAllCompanies = () => 
+  {
+    getCompanies().then(data =>{
+      setCompany(data.data);
+  })
+  }
+
+
+  const axiosGet = () => {
+    return  axios.get('https://retoolapi.dev/gxljse/locations')
     .then((data) =>
     {
-      setLocations(data)
-      console.log("logging loc")
-      console.log(loc)
+     return(data)
     })
     .catch((err) =>
     {
@@ -51,18 +71,7 @@ function App() {
 
   return (
     <div>
-      <h2> Ciao Mondo!</h2>
-      {
-        post.map((post, index) => (
-          <Post key={index} name={post.name} surname={post.surname} post={post.post}/>
-        ))}
-      <hr/>
-      <h2>Catching user input changes.</h2>
-      <input type="text" placeholder={postDesc} onChange={handleUserInput}/>
-          <pre>
-            <code> {JSON.stringify(loc, null,2)}</code>
-          </pre>
-
+      <FrontPage></FrontPage>
     </div>
   )
 }
