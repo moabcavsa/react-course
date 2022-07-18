@@ -24,3 +24,15 @@ export const getFrameworks = () =>
         return err;
     })
 }
+
+export const getProjects = () =>
+{
+    return axios.get('https://retoolapi.dev/y2cw4Y/projects')
+    .then(data =>
+        {
+            return data;
+        })
+    .catch(err => {
+        return err;
+    })
+}

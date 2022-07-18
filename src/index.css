@@ -31,11 +31,15 @@ code {
   flex-direction: column;
   width:40%;
   margin-left: 30%;
+  margin-bottom: 0.1%;
 }
 
 .PaperClass
 {
-  display: flex;
+
+  display:flex;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -44,6 +48,16 @@ code {
   background-color: transparent !important;
 }
 
+.centerDiv
+{
+  display: flex;
+  margin-left: auto;
+  margin-top: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+}
 .ImagePaper
 {
   border-radius: 8px;
@@ -55,4 +69,59 @@ code {
   max-width: 153px;
   max-height: 153px;
   min-height: 153px;
+}
+
+.SwipeableClass
+{
+  display: flex;
+  margin-left: auto;
+  margin-top: auto;
+  justify-content: center;
+}
+
+.AboutMe
+{
+  color: #FFFFFF;
+}
+
+.centerSwitch
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Projects
+{
+  background-color: rgba(241,241,241,0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border: 2px solid;
+  border-color: #ba68c8;
+  padding:30px;
+  min-height: 370px;
+  max-width: 300px;
+
+}
+
+.centerFrameworks
+{
+  display: flex;
+
+}
+
+@media screen and (min-width: 360px) {
+  .swiper-container {
+    width: 360;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-container {
+    width: 768px;
+  }
 }
