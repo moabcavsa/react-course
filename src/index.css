@@ -3,8 +3,8 @@ body {
   font-family: arial,helvetica,sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
    background-color: black;
+  
 }
 
 code {
@@ -113,6 +113,47 @@ code {
   display: flex;
 
 }
+
+.BottomNav
+{
+  width: 20%;
+  background-color: darkseagreen !important;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 10px;
+  position: fixed;
+  bottom: 0;
+  z-index: 900;;
+  visibility: hidden;
+}
+
+.RotateTimeline
+{  
+  transform: rotate(90deg) !important;
+  margin-top: 10%
+}
+.TimelineContentContainer
+{
+  text-align: left;
+}
+
+.TimelineContent{
+  display: inline-block;
+  transform: rotate(-90deg);
+  text-align: center;
+  min-width: 50
+}
+
+.timelineIcon
+{
+  transform: rotate(-90deg);
+}
+
+.SnackbarPos
+{
+  justify-content: flex-end !important;
+}
+
 
 @media screen and (min-width: 360px) {
   .swiper-container {

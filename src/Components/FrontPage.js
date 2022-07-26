@@ -1,20 +1,22 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Slider } from "@mui/material";
+import { BottomNavigationAction, Slider } from "@mui/material";
 import { getFrameworks } from "../Services/apiAxios";
 import { getProjects } from "../Services/apiAxios";
 import { Paper } from "@mui/material";
 import { Avatar } from "@mui/material";
 import { Divider } from "@mui/material";
 import { Snackbar } from "@mui/material";
-import { Alert}  from "@mui/material";
+import { Alert } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import TimelineIcon from '@mui/icons-material/Timeline';
 import { flexbox } from "@mui/system";
 import { Tooltip } from "@mui/material";
 import { Switch } from "@mui/material";
+import { BottomNavigation } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -50,6 +52,9 @@ function FrontPage() {
   const toggleDrawer = (newOpenSwipe) => () => {
     setOpenSwipe(newOpenSwipe);
   };
+  
+
+  const [navValue, setValue]  = useState(true)
 
   const [openSnackbar, setSnackbar] = useState(false);
 
@@ -65,15 +70,13 @@ function FrontPage() {
     setSnackbar(false);
   };
 
-  const HandleClick = () =>
-  {
-    window.open("https://www.linkedin.com/in/giuseppe-causa-9ba57719b/")
-  }
+  const HandleClick = () => {
+    window.open("https://www.linkedin.com/in/giuseppe-causa-9ba57719b/");
+  };
 
-  const HandleGitClick = () =>
-  {
-    window.open("https://github.com/moabcavsa")
-  }
+  const HandleGitClick = () => {
+    window.open("https://github.com/moabcavsa");
+  };
 
   const maxHeighStyle = { marginTop: "0.5%" };
   const swipemaxWidth = { width: "150px" };
@@ -86,7 +89,11 @@ function FrontPage() {
   return (
     <div>
       <div className={"centerDiv"} style={{ marginTop: "1%" }}>
-        <GitHubIcon color="primary" fontSize="small" onClick={HandleGitClick}></GitHubIcon>
+        <GitHubIcon
+          color="primary"
+          fontSize="small"
+          onClick={HandleGitClick}
+        ></GitHubIcon>
         <LinkedInIcon color="primary" onClick={HandleClick}></LinkedInIcon>
         <div onClick={toggleDrawer(true)}>
           <Tooltip placement="right" title="Clicca per informazioni" arrow>
@@ -206,9 +213,9 @@ function FrontPage() {
           className={"AboutMe"}
         >
           Full Stack Developer, sviluppo di applicativi di Automazione e
-          controllo.<br></br>Da fine 2020, in 3EM Group con
-          cliente finale Danieli Automation, BU Long Products L2, per lo
-          sviluppo e commissioning del modulo di L2.<br></br>
+          controllo.<br></br>Da fine 2020, in 3EM Group con cliente finale
+          Danieli Automation, BU Long Products L2, per lo sviluppo e
+          commissioning del modulo di L2.<br></br>
           Il modulo L2 DA prevede:
           <br></br>
           <span>&#8226;</span> Gestione setup delle macchine del treno di
@@ -223,13 +230,19 @@ function FrontPage() {
         </Typography>
       </SwipeableDrawer>
 
+  
       <Snackbar
         autoHideDuration={10000}
         open={openSnackbar}
         onClose={handleCloseSnackBar}
+        className={"SnackbarPos"}
       >
-        <Alert onClose={handleCloseSnackBar} severity="info" sx={{ width: "100%" }}>
-         Clicca sulla icona profilo per più dettagli
+        <Alert
+          onClose={handleCloseSnackBar}
+          severity="info"
+          sx={{ width: "100%"}}
+        >
+          Clicca sulla icona profilo per più dettagli
         </Alert>
       </Snackbar>
     </div>

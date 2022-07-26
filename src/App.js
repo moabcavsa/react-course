@@ -9,7 +9,12 @@ import {getCompanies} from './Services/apiAxios'
 import Company from './Components/Company';
 import FrontPage from './Components/FrontPage';
 
-
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import JobTimeline from './Components/JobTimeline';
 
 
 function App() {
@@ -71,7 +76,11 @@ function App() {
 
   return (
     <div>
-      <FrontPage></FrontPage>
+      <Routes>
+        <Route path="/" element={<FrontPage/>}/>
+        <Route path="JobTimeline" element={<JobTimeline/>}/>
+      </Routes>
+      
     </div>
   )
 }
